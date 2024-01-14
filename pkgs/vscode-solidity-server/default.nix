@@ -23,6 +23,7 @@ buildNpmPackage rec {
   npmDepsHash = "sha256-ZFoCnpEoJxCRVCi7uUYXlGVTiWBAXk3rR/i7+EGVfvM=";
 
   meta = {
+    broken = true;
     description =
       "Visual Studio Code language support extension for Solidity smart contracts in Ethereum";
     homepage = "https://github.com/juanfranblanco/vscode-solidity";
