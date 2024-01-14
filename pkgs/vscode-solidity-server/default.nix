@@ -9,6 +9,10 @@ buildNpmPackage rec {
 
   npmBuildScript = "build:cli";
 
+  npmFlags = [ "--loglevel=verbose" ];
+
+  makeCacheWritable = true;
+
   src = fetchFromGitHub {
     owner = "juanfranblanco";
     repo = "vscode-solidity";
@@ -22,6 +26,7 @@ buildNpmPackage rec {
     description =
       "Visual Studio Code language support extension for Solidity smart contracts in Ethereum";
     homepage = "https://github.com/juanfranblanco/vscode-solidity";
+    platforms = [ "x86_64-linux" ];
     license = lib.licenses.mit;
   };
 }
