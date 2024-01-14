@@ -9,8 +9,6 @@ buildNpmPackage rec {
 
   npmBuildScript = "build:cli";
 
-  npmFlags = [ "--loglevel=verbose" ];
-
   makeCacheWritable = true;
 
   src = fetchFromGitHub {
