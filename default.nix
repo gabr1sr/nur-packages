@@ -18,6 +18,7 @@
   vscode-solidity-server = pkgs.callPackage ./pkgs/vscode-solidity-server { };
   scarb = pkgs.callPackage ./pkgs/scarb { };
   starknet-foundry-bin = pkgs.callPackage ./pkgs/starknet-foundry-bin { };
+  scarb-bin = pkgs.callPackage ./pkgs/scarb-bin { };
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
   # ...
 }
