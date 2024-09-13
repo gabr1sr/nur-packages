@@ -5,6 +5,9 @@ with python3.pkgs;
 buildPythonPackage rec {
   pname = "halmos";
   version = "0.1.14";
+  pyproject = true;
+  doCheck = false;
+  disabled = pythonOlder "3.11";
 
   src = fetchPypi {
     inherit pname version;
@@ -23,10 +26,6 @@ buildPythonPackage rec {
     z3-solver
     toml
   ];
-
-  disabled = pythonOlder "3.11";
-  pyproject = true;
-  doCheck = false;
   
   meta = {
     broken = false;
