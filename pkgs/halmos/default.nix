@@ -1,4 +1,4 @@
-{ lib, python3, z3-solver, pythonOlder, buildPythonPackage, fetchPypi, setuptools }:
+{ lib, python3, pythonOlder, buildPythonPackage, fetchPypi, setuptools }:
 
 with python3.pkgs;
 
