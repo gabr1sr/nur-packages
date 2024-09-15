@@ -1,10 +1,11 @@
-{ lib, python3, fetchPypi }:
+{ lib, python3, fetchPypi, z3-solver, pythonOlder,  pythonRelaxDepsHook }:
 
 python3.pkgs.buildPythonPackage rec {
   pname = "halmos";
   version = "0.1.14";
   pyproject = true;
   doCheck = false;
+  disabled = pythonOlder "3.11";
 
   nativeBuildInputs = with python3.pkgs; [
     z3-solver
@@ -16,6 +17,7 @@ python3.pkgs.buildPythonPackage rec {
   };
   
   build-system = with python3.pkgs; [
+    pythonRelaxDepsHook
     setuptools
     setuptools-scm
   ];
@@ -26,7 +28,7 @@ python3.pkgs.buildPythonPackage rec {
     sortedcontainers
     z3-solver
     toml
-  ] ++ python3.pkgs.z3-solver.requiredPythonModules;
+  ] ++ z3-solver.requiredPythonModules;
   
   meta = {
     broken = false;
