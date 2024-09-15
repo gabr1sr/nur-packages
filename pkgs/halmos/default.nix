@@ -1,13 +1,13 @@
-{ lib, python3, fetchPypi, z3-solver, pythonOlder,  pythonRelaxDepsHook }:
+{ lib, buildPythonPackage, fetchPypi, z3-solver, pythonOlder, setuptools, setuptools-scm, sortedcontainers, toml, pythonRelaxDepsHook }:
 
-python3.pkgs.buildPythonPackage rec {
+buildPythonPackage rec {
   pname = "halmos";
   version = "0.1.14";
   pyproject = true;
   doCheck = false;
   disabled = pythonOlder "3.11";
 
-  nativeBuildInputs = with python3.pkgs; [
+  nativeBuildInputs = [
     z3-solver
   ];
   
@@ -16,7 +16,7 @@ python3.pkgs.buildPythonPackage rec {
     hash = "sha256-Va5gwyRePGHnFr3jtP1ec3diAQExXfVbwrrMpzV9euc=";
   };
   
-  build-system = with python3.pkgs; [
+  build-system = [
     pythonRelaxDepsHook
     setuptools
     setuptools-scm
@@ -24,7 +24,7 @@ python3.pkgs.buildPythonPackage rec {
 
   pythonRemoveDeps = [ "z3-solver" ]; # https://github.com/NixOS/nixpkgs/blob/1d28f484f4a92f6ef8facea80ea4e3fe3aa153bc/pkgs/development/python-modules/model-checker/default.nix#L24-L25
   
-  dependencies = with python3.pkgs; [
+  dependencies = [
     sortedcontainers
     z3-solver
     toml
